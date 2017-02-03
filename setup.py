@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import sys
 from setuptools import setup
 
 install_requires = [
@@ -12,7 +11,7 @@ install_requires = [
 ]
 
 setup(name="pixplz",
-      version="0.0.1",
+      version="0.0.2",
       author="Paul Fitzpatrick",
       author_email="paulfitz@alum.mit.edu",
       description="Fetch some images to use as casual training data",
