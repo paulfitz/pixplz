@@ -9,7 +9,6 @@ import re
 import time
 from tqdm import tqdm
 from six.moves.urllib.parse import urlencode
-import grequests
 
 MINIMUM_NUMBER_OF_IMAGES = 5
 
@@ -53,7 +52,15 @@ def get_urls(term):
 
 
 def get_images(args, urls):
-    responses = grequests.imap(grequests.get(u) for u in urls)
+    if args.parallel > 1:
+        try:
+            import grequests
+            responses = grequests.imap((grequests.get(u) for u in urls), size=args.parallel)
+        except ImportError:
+            print("Please do 'pip install pixplz[parallel]' to enable parallel loading")
+            exit(1)
+    else:
+        responses = six.moves.map(requests.get, urls)
     k = 0
     fails = 0
 
@@ -87,6 +94,10 @@ def main():
                         help="prefix for downloaded images, _NNNNNN.jpg will be added")
     parser.add_argument('--format',
                         help="format for naming images, for example 'foo/bar%%06d.png'")
+    parser.add_argument('--parallel',
+                        default=1,
+                        type=int,
+                        help="number of images to load in parallel (requires pixplz[parallel])")
     parser.add_argument('--count',
                         default=MINIMUM_NUMBER_OF_IMAGES,
                         type=int,

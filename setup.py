@@ -3,15 +3,14 @@
 from setuptools import setup
 
 install_requires = [
-    "grequests",
     "Pillow",
-    "requests",
+    "requests[security]",
     "six",
     "tqdm"
 ]
 
 setup(name="pixplz",
-      version="0.0.2",
+      version="0.0.3",
       author="Paul Fitzpatrick",
       author_email="paulfitz@alum.mit.edu",
       description="Fetch some images to use as casual training data",
@@ -22,5 +21,10 @@ setup(name="pixplz",
           ]
       },
       install_requires=install_requires,
+      extras_require={
+          'parallel': [
+              "grequests"
+          ]
+      },
       url="https://github.com/paulfitz/pixplz"
 )
