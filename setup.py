@@ -4,13 +4,13 @@ from setuptools import setup
 
 install_requires = [
     "Pillow",
-    "requests[security]",
+    "requests",
     "six",
     "tqdm"
 ]
 
 setup(name="pixplz",
-      version="0.0.3",
+      version="0.0.4",
       author="Paul Fitzpatrick",
       author_email="paulfitz@alum.mit.edu",
       description="Fetch some images to use as casual training data",
