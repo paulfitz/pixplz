@@ -10,7 +10,7 @@ install_requires = [
 ]
 
 setup(name="pixplz",
-      version="0.0.4",
+      version="0.0.5",
       author="Paul Fitzpatrick",
       author_email="paulfitz@alum.mit.edu",
       description="Fetch some images to use as casual training data",

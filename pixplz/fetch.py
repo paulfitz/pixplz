@@ -52,7 +52,14 @@ def get_urls(term):
 
 
 def get_images(args, urls):
-    if args.parallel > 1:
+    if args.parallel == 0:
+        try:
+            import grequests
+            args.parallel = None
+        except ImportError:
+            args.parallel = 1
+            pass
+    if args.parallel != 1:
         try:
             import grequests
             responses = grequests.imap((grequests.get(u) for u in urls), size=args.parallel)
@@ -78,9 +85,9 @@ def get_images(args, urls):
                 elif args.prefix:
                     img.save("%s%06d.jpg" % (args.prefix, k))
                 k += 1
+                pbar.update()
             except IOError:
                 fails += 1
-            pbar.update()
             if k >= args.count:
                 break
     print("{} images downloaded ({} duds skipped)".format(k, fails))
@@ -95,7 +102,7 @@ def main():
     parser.add_argument('--format',
                         help="format for naming images, for example 'foo/bar%%06d.png'")
     parser.add_argument('--parallel',
-                        default=1,
+                        default=0,
                         type=int,
                         help="number of images to load in parallel (requires pixplz[parallel])")
     parser.add_argument('--count',
