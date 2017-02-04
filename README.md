@@ -1,9 +1,11 @@
 pixplz
 ======
 
+Fetch sample images for a search term, without fuss.
+
 ![tty](https://cloud.githubusercontent.com/assets/118367/22622250/b9973962-eb03-11e6-8b54-7a1d49497a04.gif)
 
-install
+Install
 -------
 
 ```
@@ -22,7 +24,7 @@ If you have a version of ssl that is giving warnings, and they annoy you, do:
 pip install requests[security]
 ```
 
-options
+Options
 -------
 
 ```
@@ -48,10 +50,14 @@ optional arguments:
   --count COUNT        target number of images to load (fewer may be loaded)
 ```
 
-source of images
+Source of images
 ----------------
 
 Currently, this grabs a few images from ddg to use as casual training data.
-After poking around for terms of service, I still don't
-know how ddg feels about this.  Will switch to other sources
-of public image data if needed.
+After poking around for terms of service, I still don't know how ddg feels
+about this.  Will switch to other sources of public image data as needed.
+
+Clearly, images from a search engine are not going to be solid ground truth.
+I use pixplz when near enough is good enough. For example, recently
+I used an amalgam of `text`, `slogan`, `logo`
+against `wall`, `sky`, `night` when training a network for billboard segmentation.
