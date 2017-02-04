@@ -3,6 +3,28 @@ pixplz
 
 ![tty](https://cloud.githubusercontent.com/assets/118367/22622250/b9973962-eb03-11e6-8b54-7a1d49497a04.gif)
 
+install
+-------
+
+```
+pip install pixplz
+```
+
+For faster results, but with more dependencies, you can do:
+
+```
+pip install pixplz[parallel]
+```
+
+If you have a version of ssl that is giving warnings, and they annoy you, do:
+
+```
+pip install requests[security]
+```
+
+options
+-------
+
 ```
 $ pixplz koala
 5 images downloaded (1 duds skipped)
