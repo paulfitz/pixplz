@@ -10,14 +10,15 @@ install_requires = [
 ]
 
 setup(name="pixplz",
-      version="0.0.5",
+      version="0.0.6",
       author="Paul Fitzpatrick",
       author_email="paulfitz@alum.mit.edu",
       description="Fetch some images to use as casual training data",
       packages=['pixplz'],
       entry_points={
           "console_scripts": [
-              "pixplz=pixplz.fetch:main"
+              "pixplz=pixplz.fetch:main",
+              "mp3plz=pixplz.fetch_audio:main"
           ]
       },
       install_requires=install_requires,
