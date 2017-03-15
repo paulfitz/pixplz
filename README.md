@@ -61,3 +61,14 @@ Clearly, images from a search engine are not going to be solid ground truth.
 I use pixplz when near enough is good enough. For example, recently
 I used an amalgam of `text`, `slogan`, `logo`
 against `wall`, `sky`, `night` when training a network for billboard segmentation.
+
+Now with audio!
+---------------
+
+```
+mp3plz cooking
+```
+
+You now have some mp3s of cooking sounds, from freesound.org, for use as
+casual training data.  I don't know how freesound feels about this.
+Will switch to other sources of public audio data as needed.
